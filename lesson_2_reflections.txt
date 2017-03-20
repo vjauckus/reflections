@@ -1,0 +1,27 @@
+1. Initializing a Repository
+------------------------------------
+What happens when you initialize a repository? Why do you need to do it?
+Now that you’ve initialized your first repository:
+git init
+(kommt .git Datei)
+Aber das kreiiert Commit nicht: wir haben immer noch 0 commits, wenn wir:
+git log
+machen, dann kommt ein Fehler:
+fatal: your current branch 'master' does not have any commits yet
+---------------------------------
+Man kann auch status abfragen:
+git status
+Darauf kommt die Antwort:
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+  .DS_Store
+  lesson_1_reflections.txt
+  lesson_2_reflections.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+

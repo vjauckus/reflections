@@ -1,0 +1,293 @@
+1. How did viewing a diff between two versions of a file help you see the bug that was introduced?
+
+It helps to see lines where the difference is located
+diff -u old.txt new.txt
+
+the line from the old file is ++
+the line from new file is --
+
+Some background: why reflection is so useful
+--------------------------------------------
+Storytelling as Reflection
+
+Portfolios provide a powerful environment in which students can collect and organize the artifacts that result from engaging in these challenging, real-life tasks, and write the reflections through which students draw meaning. Part of the reflective process is to have students tell stories about their experiences which brain research shows can help students embed these experiences into their long term memory.
+
+Donald Schön (1988) discussed storytelling as a mode of reflection:
+“…for storytelling is the mode of description best suited to transformation in new situations of action.... Stories are products of reflection, but we do not usually hold onto them long enough to make them objects of reflection in their own right.... When we get into the habit of recording our stories, we can look at them again, attending to the meanings we have build into them and attending, as well, to our strategies of narrative description.”
+
+For those who consider the term “storytelling” to be too informal, Mattingly (1991) recommends using the term “narrative inquiry.” He points out Aristotle’s use of narrative as the natural framework for representing the world of action. Mattingly also elaborates on the “everyday sense-making role of storytelling,” that stories reveal the way ideas look in action. Narrative provides explanation.  Our motivation for telling stories is to wrest meaning from experiences.
+2. How could having easy access to the entire history of a file make you a more efficient programmer in the long term?
+There are many causes:
+In daily life as programmer it is important sometime to see previous version of files, because changes are not always goo and the ols version is better.
+We need sometimes the backup or we want to see previous state of code, because it was easier to read before new implemented modules.
+
+Alternatively, you can create a symbolic link to Sublime. (for Starting Sublime in terminal Window)
+----------------------------------------------------------------------------------------------------
+
+    Find where the subl command is located.
+    subl comes with Sublime, so it should be in the directory where Sublime is located for you.  For many people, this is /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin.  To test this, run ls /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin.  You should see the subl command listed.  If you get the error No such file or directory, Sublime is located somewhere else for you and you'll need to find it.
+
+    If you do not have a file named .bash_profile in your home directory, create it.  Because the name of this file begins with a period, it will not appear in most file navigators or when you run ls.  Instead, run ls -a to see if you have the file.
+
+    Add the lines export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH and export EDITOR='subl -w' to the end of your .bash_profile. 
+
+    Save and exit .bash_profile.
+
+    At the terminal command prompt type: source ~/.bash_profile
+
+    At the terminal command prompt type: sudo ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl Note that if subl was in a different directory for you in step 1, use the path to that directory. If prompted for a password, use the same password you use to log into your Mac account.
+
+    Close and re-open your terminal.  Typing subl in the terminal should now open Sublime.
+
+    What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google Docs does?
+    -----------------------------------------------------------
+    Pros(+):
+    I can deside by myself when I set commit, so I know that It makes sense to save a new version. It spares some memory place and makes reading of git history much better. In this case is Git better.
+    Cons(-):
+    I can forget to save last changes and lose a good previous changes. In this case were automatically saving like Google Docs better choise.
+
+    Why do you think some version control systems, like Git, allow saving multiple files in one commit, while others, like Google Docs, treat each file separately?
+    -------------------------------
+    I think, because they can manage it as a one project, it based on databank storage concept.
+
+   f19cb1b80fe27e938e4d72770ca0a42f25e99ecc b0678b161fcf74467ed3a63110557e3d6229cfa6
+   
+   Using Git to View History
+   ----------------------------
+   1. Git install. See: git --version (must be higher as 1.8)
+   2. Clone of Repository Asteroids (game): git clone https://github.com/udacity/asteroids
+   3. cd asteroids (auf users/veronika)
+   4. git config --global color.ui auto  (setting of colors: red -- deletes, green ++ inserts)
+   5. git log
+   5. git diff first_comment_ID second_comment_ID
+
+   How can you use the commands git log and git diff to view the history of files?
+   -----------------
+   First look at the description of change
+   Go to previous version and tip 
+   git diff previous_version actual_version
+   You will see green lines with inserts in actual_version; red show you deleted lines in actual version, so you get complete view of changes compered to previous_version.
+
+   Warnings and Errors
+   -----------------------
+   If You press  Pfeil+ Leertaste entsteht beim letzten Commit: eine Spirale.
+   Letztwer Commit ist:
+   commit 3884eab839af1e82c44267484cf2945a766081f3
+Author: cbuckey <caroline@udacity.com>
+Date:   Fri Apr 29 12:33:05 2011 -0700
+
+    Add color
+    Der Fehler entstand aber früher. Suche ergibt ,dass der Fehler schon bei
+
+    commit 25ede836903881848fea811df5b687b59d962da3  "Here is Error!!!!"
+Author: Doug McInnes <doug@dougmcinnes.com>
+Date:   Wed May 26 23:52:00 2010 -0700
+
+    a couple missing ends with the ipad version
+
+    entstand, weil eine Zeile versentlich gelöscht wurde.
+    Beim setzen auf Version:
+    git checkout 25ede836903881848fea811df5b687b59d962da3;
+    kommt Message: 
+    "You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 25ede836...a couple missing ends entstand.
+
+Die Antwort auf Quiz ist : 25ede836..
+
+So muss man auf  df035382c41b4d0cda86a1aa30b53f15bef05b53 setzen, damit Schiessen richtig geht.
+
+Beim Checkout wird alles, was zeitlich nach diesem commit war (25ede hier) in git log nicht mehr angezeigt.
+
+Dann muss man schon expliziet auf ältere Version setzen, sonst wird wie vergessen: 3884eab839af1e82c44267484cf2945a766081f3.
+
+Wenn man letze Änderungen wegschmeissen will, dann k.m. den unwiederruflichen Befehl:
+
+git reset --hard.
+
+
+   How might using version control make you more confident to make changes that could break something?
+   -----------------------------------------------------------------------------------------
+   We can always go to previous Version, so the lost of code and time is not so big thanks Git. So we have no fear of breaking. We get more space to try and make us to better programmer.
+
+   Setting Up Your Workspace on Mac
+   ------------------------------------------
+Downloading necessary files
+
+    Save this file in your home directory with the name git-completion.bash.
+    Save this file in your home directory with the name git-prompt.sh.
+    Download bash_profile_course here.
+    If you already have a file in your home directory named .bash_profile, copy the content from bash_profile_course and paste it at the bottom of .bash_profile. Otherwise, move bash_profile_course to your home directory and rename it to .bash_profile. If you use Linux, you may need to name this file .bashrc instead of .bash_profile. (If you're curious to learn more about how bash prompts work, see this page.)
+
+Make sure you can start your editor from the terminal
+
+If you use Sublime, you can do this by add the following line to your .bash_profile (you may need to change the path if Sublime is installed in a different location for you):
+
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
+Making Git configurations
+
+Run the following Git configuration commands. The first one will need to be modified if you are using a text editor other than Sublime, or if Sublime is installed in another location for you. See this page for the correct command for a couple of other popular text editors. For any other editor, you'll need to enter the command you use to launch that editor from the terminal.
+
+git config --global core.editor "'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl' -n -w"
+git config --global push.default upstream
+git config --global merge.conflictstyle diff3
+
+(Instead of the first command, you may be able to use the simpler git config --global core.editor "subl -n -w" as shown in the video, but many students have found this does not work for them.)
+Restart the terminal
+
+You'll need to close and re-open the terminal before all your changes take effect.
+
+Now that you have your workspace set up, what do you want to try using Git for?
+--------------------------------------------------------------------
+I want to try the errors searching in action now. It is more visible and comfortable now with colors.
+
+Behavior of git clone
+--------------------------
+
+1.If someone else gives you the location of their directory or repository, you can copy or clone it to your own computer.
+
+This is true for both copying a directory and cloning a repository.
+
+As you saw in the previous lesson, if you have a URL to a repository, you can copy it to your computer using git clone.
+
+For copying a directory, you weren't expected to know this, but it is possible to copy a directory from one computer to another using the command scp, which stands for "secure copy". The name was chosen because the scp command lets you securely copy a directory from one computer to another.
+
+2.The history of changes to the directory or repository is copied.
+
+This is true for cloning a repository, but not for copying a directory. The main reason to use git clone rather than copying the directory is because git clone will also copy the commit history of the repository. However, copying can be done on any directory, whereas git clone only works on a Git repository.
+
+If you make changes to the copied directory or cloned repository, the original will not change.
+
+This is true for both copying a directory and cloning a repository. In both cases, you're making a copy that you can alter without changing the original.
+
+The state of every file in the directory or repository is copied.
+
+This is true for both copying a directory and cloning a repository. In both cases, all the files are copied.
+
+Behavior of git log
+----------------------
+
+git log lists the most recent commit first, as you can verify by checking the commit dates. The middle commit probably contains the code for the mute button, since the commit message indicates that the mute button was added in that commit. The top commit also probably contain the mute button, since that commit is more recent and nothing suggests the mute button has been removed. The bottom commit probably does not contain the mute button, since that commit was created before the commit that added the mute button.
+
+To summarize:
+
+    commit 7be5a12f1567866b0d77ccdf2055d1a33831da78 (the top commit listed)
+
+    Yes, probably contains the mute button.
+
+    commit 06d72e1f95f046002ec46f41cf71957227111141 (the middle commit listed)
+
+    Yes, probably contains the mute button.
+
+
+commit 7be5a12f1567866b0d77ccdf2055d1a33831da78
+Author: Ellison Leão <el@gmail.com>
+Date:   Fri Jul 11 12:56:26 2014 -0300
+
+    Add sound for the wing.
+
+
+commit 06d72e1f95f046002ec46f41cf71957227111141
+Author: Ellison Leão <el@gmail.com>
+Date:   Wed Jul 9 23:42:55 2014 -0300
+
+    Add mute button.
+
+commit 3d4d45b246aad6a1cd0afaf7cfae26966110727e
+
+Behavior of git diff
+-----------------------
+
+The middle commit, 06d72e, is the first commit with the mute button, so comparing that commit and the previous commit, 3d4d45, would show the changes that add the mute button.
+
+Behavior of git checkout
+---------------------------------
+
+On the next screen, check whether each statement is always, sometimes, or never true about using git checkout to checkout an earlier commit in a repository with multiple files.
+
+1.Checking out an earlier commit will change the state of at least one file.
+
+This is sometimes true. Git doesn't allow you to save a new commit if no files have been updated, so you might think this is always true. However, it's possible to do the following:
+
+    Save a commit (call this commit 1).
+    Update some files and save another commit (call this commit 2).
+    Change all the files back to their state during commit 1, then save again (call this commit 3).
+
+This sometimes happens if commit 2 contained a bug, and it's important to fix the bug quickly. The easiest thing to do might be to remove all the changes introduced by commit 2 to fix the bug, then figure out how to safely reintroduce the changes later.
+
+At this point, commit 3 is the latest commit, so if you checkout commit 1, none of the files will be changed.
+
+2.Checking out an earlier commit will change the state of more than one file. (Sometimes)
+
+3.Checking out an earlier commit will change the state of every file in the repository.
+
+Both of these are sometimes true. Since each commit tracks the state of all files in the repository, it is possible that checking out an earlier commit will change the state of multiple files, or even all the files in the repository. However, it is possible to save a new commit after changing only one file, so it is possible only one file will change.
+
+4.After checking out a commit, the state of all the files in the repository will be from the same point in time.
+
+This is always true. A commit saves a snapshot of all files in the repository at the time the commit was made, so checking out an earlier commit will result in all the files being reverted to their state at the time the commit was made. That is, the files will be in a consistent state.
+
+Cloning the repository
+-----------------------------
+
+You can clone the repository with a new game by running: git clone https://github.com/udacity/pappu-pakia.git. 
+
+Last commit: fa4c6bade4970c282b3870ad16f1bde8164663a9
+
+Fehler bei 547f4171a82ec6429d002c1acef357aec41d3f17
+
+The name of file was changed is utils.js
+
+The 1 bug was at commit 547f41.. refactoring collision detection.
+
+The second bug was in is the commit with message "speeding clones up", that is, commit 003c8c197cd3b1e5b28b58f53ee14d7ebaa9bb3a
+
+Using this strategy of examining the most likely looking commits doesn't always work, but it often does, and it can save a lot of debugging time. This is one of the reasons it's so useful to make one commit per logical change and give each commit a good message - to make it possible to take shortcuts like this!
+
+Examining the buggy commit
+-----------------------------
+
+Again, use Git's history to figure out what changes were introduced in the commit that caused the bug. On the next screen, select the change that was introduced, and enter the name of the file that was affected.
+Finding and fixing the bug
+-------------------------
+git diff 746f762e38b5bbb7d0b837464ef6ec3f8ee5bf91 003c8c197cd3b1e5b28b58f53ee14d7ebaa9bb3a
+diff --git a/js/pappu.js b/js/pappu.js
+index 271761e..265fa78 100644
+--- a/js/pappu.js
++++ b/js/pappu.js
+@@ -244,8 +244,8 @@
+         if (clone.x > mit.W || clone.y < 0 || clone.y > mit.H)
+           self.clones.splice(index, 1);
+ 
+-        clone.x += utils.randomNumber(5, 10);
+-        clone.y += utils.randomNumber(-20, 20);
++        clone.x += utils.randomNumber(500, 1000);
++        clone.y += utils.randomNumber(-2000, 2000);
+ 
+         clone.draw(ctx);
+       });
+
+
+That is, the x and y coordinate of each clone is changed by a larger random amount. This will have the effect of making the clones move more quickly, or speed up, since their positions change more quickly.
+File changed
+
+Near the top of the git diff output, you can see the lines:
+
+This indicates that the file changed was `js/pappu.js`, that is, the file `pappu.js` in the directory `js`.
+
+
+
+
+
+
+
+
+
