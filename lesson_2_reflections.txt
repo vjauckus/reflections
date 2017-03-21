@@ -58,11 +58,56 @@ Untracked files:
 
     Differance between repository and staging area is:
     - staging area is like container with files that habe to be saved in repository
+    -staging area is like a copy of recent commit
     - repository saved the files multiple time according to version, with timestamps
 
     How to write a commit message
     ------------------------------
-    You can also specify a commit message via the command line by running git commit -m "Commit message" instead of just git commit. It's still a good idea to get an editor set up, since this will make it easier to write long commit messages that fully describe the change.
+    You can also specify a commit message via the command line by running git commit -m "Commit message" instead of just 
+    git commit. 
+    It's still a good idea to get an editor set up, since this will make it easier to write long commit messages that fully describe the change.
+
+    Wenn wir nacheinander git commit lesson_1 (add lesson_1) und dann lesson_2 (add lesson_2) commited,dann zum schluss bringt git status:
+    On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+  .DS_Store
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+After bug fixing, we can do this: save game.js with changes, then tip
+- git status
+will show "Not staged for commit
+  modified file game.js"
+-git add game.js (stage our change: our files in Working directory and in Stage area are the same now) 
+-git status will show ("changes to be commited")
+-git diff (is empty)
+How can you use the staging area to make sure you have one commit per logical change?
+-------------------------------------------------------------------------------------
+Make add to staging area regulary after every logical change
+
+Use Branches and diagrams
+--------------------------
+What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+If we have for example many versions of the same code in diferant languages or layouts we can create a new branch:
+-git branch easy-mode
+-git checkout easy-mode (switch to easy mode)
+Make changes or addoption for differant language
+with: git add game.js
+git commit.
+
+For collaboration:
+git checkout coins
+git log --graph --oneline master coins
+Compare master and coins branches
+How do the diagrams help you visualize the branch structure?
+------------------------------------------------------------
+Diagram shows 
+-how we can switch to other branch (at which point/commit)
+-unreachable commits and then we can create at this commit a new branch with:
+git checkout -b new_branch_name
+
 
     
 
