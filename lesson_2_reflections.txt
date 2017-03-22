@@ -183,6 +183,10 @@ What is the result of merging two branches together? Why do we represent it in t
 The result of merging two branches together is a mix of changes in both branches plus the same code in both branches.
 The diagram gets the possibility to see changes in column and a better way to compare commits.
 
+What are the pros and cons of Git’s automatic merging vs. always doing merges manually?
+---------------------------------------------------------------------------------------
+Automatic merge can spare time, but in critical situation is manually merge more securely.
+
 
     
 
