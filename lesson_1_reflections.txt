@@ -1,4 +1,5 @@
 1. How did viewing a diff between two versions of a file help you see the bug that was introduced?
+-----------------------------------------------------------------------------------------------------
 
 It helps to see lines where the difference is located
 diff -u old.txt new.txt
@@ -12,14 +13,11 @@ Storytelling as Reflection
 
 Portfolios provide a powerful environment in which students can collect and organize the artifacts that result from engaging in these challenging, real-life tasks, and write the reflections through which students draw meaning. Part of the reflective process is to have students tell stories about their experiences which brain research shows can help students embed these experiences into their long term memory.
 
-Donald Schön (1988) discussed storytelling as a mode of reflection:
-“…for storytelling is the mode of description best suited to transformation in new situations of action.... Stories are products of reflection, but we do not usually hold onto them long enough to make them objects of reflection in their own right.... When we get into the habit of recording our stories, we can look at them again, attending to the meanings we have build into them and attending, as well, to our strategies of narrative description.”
-
-For those who consider the term “storytelling” to be too informal, Mattingly (1991) recommends using the term “narrative inquiry.” He points out Aristotle’s use of narrative as the natural framework for representing the world of action. Mattingly also elaborates on the “everyday sense-making role of storytelling,” that stories reveal the way ideas look in action. Narrative provides explanation.  Our motivation for telling stories is to wrest meaning from experiences.
 2. How could having easy access to the entire history of a file make you a more efficient programmer in the long term?
+---------------------------------------------------------------------------------------------------------------------
 There are many causes:
-In daily life as programmer it is important sometime to see previous version of files, because changes are not always goo and the ols version is better.
-We need sometimes the backup or we want to see previous state of code, because it was easier to read before new implemented modules.
+The programmer, examining the history of a project, could efficiently follow the tweaks made to the program. In daily life as programmer it is important sometime to see previous version of files, because changes are not always good and the old version is in some points better.
+We need sometimes the backup or we want to see previous state of code, because it was easier to read before new implemented modules comes and programm bacame more complex.
 
 Alternatively, you can create a symbolic link to Sublime. (for Starting Sublime in terminal Window)
 ----------------------------------------------------------------------------------------------------
@@ -70,47 +68,17 @@ Alternatively, you can create a symbolic link to Sublime. (for Starting Sublime 
 
    Warnings and Errors
    -----------------------
-   If You press  Pfeil+ Leertaste entsteht beim letzten Commit: eine Spirale.
-   Letztwer Commit ist:
-   commit 3884eab839af1e82c44267484cf2945a766081f3
-Author: cbuckey <caroline@udacity.com>
-Date:   Fri Apr 29 12:33:05 2011 -0700
+   If You press  Arrow key+ Space key appears: a spiral. This spiral is wrong. Where (at which commit) did the error appear?
 
-    Add color
-    Der Fehler entstand aber früher. Suche ergibt ,dass der Fehler schon bei
+  The answer of quiz, where the shooting bug is, is: 25ede836..(a couple missing ends with the ipad version). The reason is: one line was deleted accidentally
 
-    commit 25ede836903881848fea811df5b687b59d962da3  "Here is Error!!!!"
-Author: Doug McInnes <doug@dougmcinnes.com>
-Date:   Wed May 26 23:52:00 2010 -0700
+The solution is to set to previous commit: df035382c41b4d0cda86a1aa30b53f15bef05b53.
 
-    a couple missing ends with the ipad version
+If we set to old commit, the "git log" did not show the most recent commits anymore. So it is important to keep the number of last commit: 3884eab839af1e82c44267484cf2945a766081f3 ( Add color).
 
-    entstand, weil eine Zeile versentlich gelöscht wurde.
-    Beim setzen auf Version:
-    git checkout 25ede836903881848fea811df5b687b59d962da3;
-    kommt Message: 
-    "You are in 'detached HEAD' state. You can look around, make experimental
-changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by performing another checkout.
+ Delete all last changes of code and set to the current commit:
 
-If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -b with the checkout command again. Example:
-
-  git checkout -b <new-branch-name>
-
-HEAD is now at 25ede836...a couple missing ends entstand.
-
-Die Antwort auf Quiz ist : 25ede836..
-
-So muss man auf  df035382c41b4d0cda86a1aa30b53f15bef05b53 setzen, damit Schiessen richtig geht.
-
-Beim Checkout wird alles, was zeitlich nach diesem commit war (25ede hier) in git log nicht mehr angezeigt.
-
-Dann muss man schon expliziet auf ältere Version setzen, sonst wird wie vergessen: 3884eab839af1e82c44267484cf2945a766081f3.
-
-Wenn man letze Änderungen wegschmeissen will, dann k.m. den unwiederruflichen Befehl:
-
-git reset --hard.
+  git reset --hard.
 
 
    How might using version control make you more confident to make changes that could break something?
@@ -119,14 +87,14 @@ git reset --hard.
 
    Setting Up Your Workspace on Mac
    ------------------------------------------
-Downloading necessary files
+  Downloading necessary files
 
     Save this file in your home directory with the name git-completion.bash.
     Save this file in your home directory with the name git-prompt.sh.
     Download bash_profile_course here.
     If you already have a file in your home directory named .bash_profile, copy the content from bash_profile_course and paste it at the bottom of .bash_profile. Otherwise, move bash_profile_course to your home directory and rename it to .bash_profile. If you use Linux, you may need to name this file .bashrc instead of .bash_profile. (If you're curious to learn more about how bash prompts work, see this page.)
 
-Make sure you can start your editor from the terminal
+  Make sure you can start your editor from the terminal
 
 If you use Sublime, you can do this by add the following line to your .bash_profile (you may need to change the path if Sublime is installed in a different location for you):
 
