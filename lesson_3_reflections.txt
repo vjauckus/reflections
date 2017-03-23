@@ -1,1 +1,42 @@
+When would you want to use a remote repository rather than keeping all your work local?
+-------------------------------------------------------------------------------------
 
+    I would prefer to work in remote mode, when:
+    - if I work in cooperation with other programmers,
+    - if I work on business trip with a notebook and not with local PC.
+
+Why might you want to always pull changes manually rather than having Git
+automatically stay up-to-date with your remote repository?
+---------------------------------------------------------------------
+
+    Because some changes are experemintal and just a trial. I want to deside by myselfe to public or not my changes.
+
+Describe the differences between forks, clones, and branches.  When would you
+use one instead of another?
+----------------------------------------------------------------------------------------------------
+
+    When you say you are Forking a repository you are basically creating a copy of the repository under your GitHub ID. Forked project is on our online repository. 
+    The Fork & Pull Model lets anyone fork an existing repository and push changes to their personal fork without requiring access be granted to the source repository. 
+    The source repository will not get my commits, because I don't have permission to change Larry's repository! The changes must then be pulled into the source repository by the project maintainer.
+
+	A clone is where you have proper duplication, and separation between, two (possibly different) versions of a repository. After forking we can clone the forked repository locally on our machine.
+	Clone can be done local as copy of the same project/repository or per remote from server.
+
+	Branches are working in a single repository.
+
+What is the benefit of having a copy of the last known state of the remote
+stored locally?
+----------------------------------------------------
+
+    Fill in your answer here
+
+How would you collaborate without using Git or GitHub?  What would be easier,
+and what would be harder?
+------------------------------------------------------
+
+    Fill in your answer here
+
+When would you want to make changes in a separate branch rather than directly in
+master?  What benefits does each approach have?
+------------------------------------------------------------
+    Fill in your answer here
