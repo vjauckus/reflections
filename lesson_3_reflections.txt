@@ -24,17 +24,25 @@ use one instead of another?
 
 	Branches are working in a single repository.
 
-What is the benefit of having a copy of the last known state of the remote
+Local copies of remote branches
+
+Now that you've seen how to update your local copy of remote branches, and how to combine conflicting changes from multiple people, add the following question and your thoughts on it to your reflections file:
+
+What is the benefit of having a copy of the last known state of the remote (Github)
 stored locally?
 ----------------------------------------------------
 
-    Fill in your answer here
+    It gives us a possibility to go back to origin state, see and analysed last changes. 
 
 How would you collaborate without using Git or GitHub?  What would be easier,
 and what would be harder?
 ------------------------------------------------------
 
-    Fill in your answer here
+    Harder will be:
+     it will be more difficult to communicate, achive people and exchange changes between programmers, because you can't see changes in files so nice as in Github.
+     More simply will be:
+     --------------------
+     If to people are on one desk, it is sometimes to understand complex changes and you can get additional explanation of codes..
 
 When would you want to make changes in a separate branch rather than directly in
 master?  What benefits does each approach have?
